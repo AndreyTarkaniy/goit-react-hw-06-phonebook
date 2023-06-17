@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import { nanoid } from 'nanoid';
 import { Container } from 'components/container/container';
 import Form from 'components/form/form';
 import ContactsList from 'components/contactsList/contactsList';
 import Filter from 'components/filter/filter';
-import ContactsData from 'components/data/contacts.json';
+// import ContactsData from 'components/data/contacts.json';
 import { useSelector } from 'react-redux';
 import { selectContacts } from 'redux/contacts/selectors';
 
@@ -12,17 +12,17 @@ export const App = () => {
   const contacts = useSelector(selectContacts);
   // const dispatch = useDispatch();
 
-  const [, setContacts] = useState(
-    () =>
-      JSON.parse(window.localStorage.getItem('contactsList')) ?? ContactsData
-  );
+  // const [, setContacts] = useState(
+  //   () =>
+  //     JSON.parse(window.localStorage.getItem('contactsList')) ?? ContactsData
+  // );
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    if (setContacts !== contacts) {
-      window.localStorage.setItem('contactsList', JSON.stringify(contacts));
-    }
-  }, [contacts]);
+  // useEffect(() => {
+  //   if (setContacts !== contacts) {
+  //     window.localStorage.setItem('contactsList', JSON.stringify(contacts));
+  //   }
+  // }, [contacts]);
 
   // const addContact = contactDataForm => {
   //   const { name } = contactDataForm;
@@ -51,13 +51,11 @@ export const App = () => {
     );
   };
 
-  const deleteContact = contactId => {
-    setContacts(prevContacts =>
-      prevContacts.filter(contact => contact.id !== contactId)
-    );
-  };
-
-  const contactsFilter = filterContact();
+  // const deleteContact = contactId => {
+  //   setContacts(prevContacts =>
+  //     prevContacts.filter(contact => contact.id !== contactId)
+  //   );
+  // };
 
   return (
     <Container>
@@ -67,7 +65,7 @@ export const App = () => {
 
       <h2>Contacts</h2>
       <Filter value={filter} onChangeFilter={changeFilter} />
-      <ContactsList contacts={contactsFilter} onDelete={deleteContact} />
+      <ContactsList contacts={filterContact()} />
     </Container>
   );
 };

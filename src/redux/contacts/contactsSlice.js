@@ -14,7 +14,10 @@ export const contactsSlice = createSlice({
         payload: { ...newConact, id: nanoid() },
       }),
     },
+    deleteContact: (state, { payload }) => {
+      state.contacts = state.contacts.filter(contact => contact.id !== payload);
+    },
   },
 });
 
-export const { addContact } = contactsSlice.actions;
+export const { addContact, deleteContact } = contactsSlice.actions;
