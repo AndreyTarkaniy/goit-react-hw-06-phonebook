@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 // import { nanoid } from 'nanoid';
 import { Container } from 'components/container/container';
 import Form from 'components/form/form';
 import ContactsList from 'components/contactsList/contactsList';
 import Filter from 'components/filter/filter';
 // import ContactsData from 'components/data/contacts.json';
-import { useSelector } from 'react-redux';
-import { selectContacts } from 'redux/contacts/selectors';
+// import { useSelector } from 'react-redux';
+// import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
 export const App = () => {
-  const contacts = useSelector(selectContacts);
+  // const contacts = useSelector(selectContacts);
+  // const filter = useSelector(selectFilter);
   // const dispatch = useDispatch();
 
   // const [, setContacts] = useState(
   //   () =>
   //     JSON.parse(window.localStorage.getItem('contactsList')) ?? ContactsData
   // );
-  const [filter, setFilter] = useState('');
+  // const [, setFilter] = useState('');
 
   // useEffect(() => {
   //   if (setContacts !== contacts) {
@@ -40,16 +41,16 @@ export const App = () => {
   //   setContacts(prevContacts => [...prevContacts, newContact]);
   // };
 
-  const changeFilter = event => {
-    setFilter(event.target.value);
-  };
+  // const changeFilter = event => {
+  //   setFilter(event.target.value);
+  // };
 
-  const filterContact = () => {
-    const normalizeFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizeFilter)
-    );
-  };
+  // const filterContact = () => {
+  //   const normalizeFilter = filter.toLowerCase();
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(normalizeFilter)
+  //   );
+  // };
 
   // const deleteContact = contactId => {
   //   setContacts(prevContacts =>
@@ -61,11 +62,10 @@ export const App = () => {
     <Container>
       <h1>Phonebook</h1>
       <Form />
-      {/* <Form onSubmitForm={addContact} /> */}
 
       <h2>Contacts</h2>
-      <Filter value={filter} onChangeFilter={changeFilter} />
-      <ContactsList contacts={filterContact()} />
+      <Filter />
+      <ContactsList />
     </Container>
   );
 };

@@ -1,16 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import css from 'components/contactsList/contactsList.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsSlice';
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
-const ContactsList = ({ contacts }) => {
+const ContactsList = () => {
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+
+  const filterContact = () => {
+    const normalizeFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizeFilter)
+    );
+  };
+
+  const contactsList = filterContact();
 
   return (
     <ul className={css.list}>
-      {contacts.map(({ id, name, number }) => (
+      {contactsList.map(({ id, name, number }) => (
         <li className={css.items} key={id}>
           <p className={css.content}>
             {name}: {number}
@@ -30,13 +41,3 @@ const ContactsList = ({ contacts }) => {
 };
 
 export default ContactsList;
-
-ContactsList.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired
-  ).isRequired,
-};
