@@ -49,7 +49,7 @@ export const Form = () => {
           className={css.input}
           type="text"
           name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          pattern="^[a\-\zA\-\Zа\-\яА\-\Я]+(([' \-\][a\-\zA\-\Zа\-\яА\-\Я ])?[a\-\zA\-\Zа\-\яА\-\Я]*)*$"
           title="Назва може містити лише літери, апостроф, тире та пробіли. Наприклад Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           id={nameId}
@@ -64,7 +64,7 @@ export const Form = () => {
           className={css.input}
           type="tel"
           name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          pattern="\+?\d{1,4}?[\-\.\s]?\(?\d{1,3}?\)?[\-\.\s]?\d{1,4}[\-\.\s]?\d{1,4}[\-\.\s]?\d{1,9}"
           title="Номер телефону має складатися з цифр і може містити пробіли, тире, круглі дужки та починатися з +"
           required
           id={numberId}
