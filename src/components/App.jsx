@@ -9,55 +9,6 @@ import Filter from 'components/filter/filter';
 // import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
 export const App = () => {
-  // const contacts = useSelector(selectContacts);
-  // const filter = useSelector(selectFilter);
-  // const dispatch = useDispatch();
-
-  // const [, setContacts] = useState(
-  //   () =>
-  //     JSON.parse(window.localStorage.getItem('contactsList')) ?? ContactsData
-  // );
-  // const [, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   if (setContacts !== contacts) {
-  //     window.localStorage.setItem('contactsList', JSON.stringify(contacts));
-  //   }
-  // }, [contacts]);
-
-  // const addContact = contactDataForm => {
-  //   const { name } = contactDataForm;
-
-  // const existContact = contacts.find(
-  //   contact => contact.name.toLowerCase() === name.toLowerCase()
-  // );
-
-  // if (existContact) {
-  //   alert(`${name} is already in contacts.`);
-  //   return;
-  // }
-
-  //   const newContact = { id: nanoid(), ...contactDataForm };
-  //   setContacts(prevContacts => [...prevContacts, newContact]);
-  // };
-
-  // const changeFilter = event => {
-  //   setFilter(event.target.value);
-  // };
-
-  // const filterContact = () => {
-  //   const normalizeFilter = filter.toLowerCase();
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(normalizeFilter)
-  //   );
-  // };
-
-  // const deleteContact = contactId => {
-  //   setContacts(prevContacts =>
-  //     prevContacts.filter(contact => contact.id !== contactId)
-  //   );
-  // };
-
   return (
     <Container>
       <h1>Phonebook</h1>
@@ -69,3 +20,68 @@ export const App = () => {
     </Container>
   );
 };
+
+// export const App = () => {
+//   const [contacts, setContacts] = useState(
+//     () =>
+//       JSON.parse(window.localStorage.getItem('contactsList')) ?? ContactsData
+//   );
+//   const [filter, setFilter] = useState('');
+
+//   useEffect(() => {
+//     if (setContacts !== contacts) {
+//       window.localStorage.setItem('contactsList', JSON.stringify(contacts));
+//     }
+//   }, [contacts]);
+
+//   const addContact = contactDataForm => {
+//     const { name, number } = contactDataForm;
+
+//     const existContact = contacts.find(
+//       contact => name.toLowerCase() === contact.name.toLowerCase()
+//     );
+
+//     if (existContact) {
+//       alert(`${name} is already in contacts.`);
+//       return;
+//     }
+
+//     const newContact = {
+//       id: nanoid(),
+//       name: name,
+//       number: number,
+//     };
+
+//     setContacts(prevContacts => [newContact, ...prevContacts]);
+//   };
+
+//   const changeFilter = event => {
+//     setFilter(event.target.value);
+//   };
+
+//   const filterContact = () => {
+//     const normalizeFilter = filter.toLowerCase();
+//     return contacts.filter(contact =>
+//       contact.name.toLowerCase().includes(normalizeFilter)
+//     );
+//   };
+
+//   const deleteContact = contactId => {
+//     setContacts(prevContacts =>
+//       prevContacts.filter(contact => contactId !== contact.id)
+//     );
+//   };
+
+//   const contactsFilter = filterContact();
+
+//   return (
+//     <Container>
+//       <h1>Phonebook</h1>
+//       <Form onSubmitForm={addContact} />
+
+//       <h2>Contacts</h2>
+//       <Filter value={filter} onChangeFilter={changeFilter} />
+//       <ContactsList contacts={contactsFilter} onDelete={deleteContact} />
+//     </Container>
+//   );
+// };

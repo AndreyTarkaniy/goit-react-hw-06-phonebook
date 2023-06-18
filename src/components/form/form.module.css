@@ -42,8 +42,7 @@
   background-color: rgb(10, 208, 243);
 }
 
-.btn:hover,
-.btn:focus {
+.btn:hover {
   color: rgb(242, 244, 247);
   background-color: rgb(59, 143, 10);
 }
