@@ -10,9 +10,6 @@ import Filter from 'components/filter/filter';
 // import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
 export const App = () => {
-  // const { contacts } = useContacts();
-  // це те, про що я питав...
-
   return (
     <Container>
       <h1>Phonebook</h1>
