@@ -4,11 +4,15 @@ import { Container } from 'components/container/container';
 import Form from 'components/form/form';
 import ContactsList from 'components/contactsList/contactsList';
 import Filter from 'components/filter/filter';
+import { useContacts } from 'redux/contacts/useContacts';
 // import ContactsData from 'components/data/contacts.json';
 // import { useSelector } from 'react-redux';
 // import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 
 export const App = () => {
+  const { contacts } = useContacts();
+  // це те, про що я питав...
+
   return (
     <Container>
       <h1>Phonebook</h1>
